@@ -4,7 +4,13 @@
 
 @section('content')
 
-    <form action=""></form>
+    <form method='GET' action="{{ route('book.index')}}" class="mb-4 flex items-center space-x-2">
+        @csrf
+        <input type="text" name ='title' placeholder="Search by title" value="{{ request('title') }}" class="input h-10">
+        <button type="submit" class="btn h-10">Search</button>
+        <a href="{{ route('book.index') }}" class="btn h-10">Clear</a>
+
+    </form>
 
     <ul>
         @forelse ($books as $book)
